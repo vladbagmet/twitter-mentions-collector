@@ -27,3 +27,4 @@ Use terminal to run commands below
 ## Running ETL Orchestration UI
 * Run etl orchestration service using command `prefect orion start`
 * Open `http://127.0.0.1:4200 ` in the browser
+![prefect-orion-ui]([https://user-images.githubusercontent.com/23407924/150556107-98ccc01b-5c13-4293-9c4b-4ed394a71247.gif](https://user-images.githubusercontent.com/23407924/186283036-a05ce655-6cd4-4ff4-bab0-f567c2a778c4.png))
