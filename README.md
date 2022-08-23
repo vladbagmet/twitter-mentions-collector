@@ -21,7 +21,7 @@ Use terminal to run commands below
   * BUCKET_NAME 
   * DYNAMODB_TABLE_NAME
   * TWITTER_API_BEARER_TOKEN 
-* Run etl job by executing a command `python collect_mentions_etl.py`
+* Run etl job by executing a command `make collect`
 
 
 ## Running ETL Orchestration UI
