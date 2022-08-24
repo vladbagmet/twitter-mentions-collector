@@ -13,7 +13,7 @@ def _run_mentions_collection_etl_job():
     # ToDo: Store intermediate state (start and end date and times).
     start = datetime.now(tz=pytz.UTC) - timedelta(days=7)
     end = datetime.now(tz=pytz.UTC) - timedelta(days=1)
-    data_processor.process_mentions(start, end)
+    data_processor.process_tweets(query_string='@FlixBus', start_datetime=start, end_datetime=end)
 
 
 @flow(name="Twitter Mentions Collection Flow")

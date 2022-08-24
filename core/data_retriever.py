@@ -33,14 +33,14 @@ class DataRetriever(AbstractDataRetriever):
         )
         return raw_response
 
-    def get_mentions(
+    def get_tweets(
         self,
+        query_string: str,
         start_datetime: Optional[datetime],
         end_datetime: Optional[datetime]
     ) -> Dict[str, Any]:
-        mention = '@FlixBus'
         return self._get_raw_data(
-            query_string=mention,
+            query_string=query_string,
             start_datetime=start_datetime,
             end_datetime=end_datetime
         )
