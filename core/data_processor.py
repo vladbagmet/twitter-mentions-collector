@@ -31,10 +31,11 @@ class DataProcessor(AbstractDataProcessor):
                 f'Not allowed to request data for more than {MAX_DAYS_BACK_DATA_RETRIEVAL_ALLOWED} days back.'
             )
 
-    def process_mentions(
-            self,
-            start_datetime: datetime,
-            end_datetime: datetime,
+    def process_tweets(
+        self,
+        query_string: str,
+        start_datetime: datetime,
+        end_datetime: datetime,
     ) -> None:
         self._validate_input_dates(start_datetime=start_datetime, end_datetime=end_datetime)
         data_retriever = DataRetriever()
@@ -44,7 +45,11 @@ class DataProcessor(AbstractDataProcessor):
             logger.info(
                 f'Processing data collection for start_date `{intraday_start_dt}` and end_date `{intraday_end_dt}`.'
             )
-            raw_data = data_retriever.get_mentions(start_datetime=intraday_start_dt, end_datetime=intraday_end_dt)
+            raw_data = data_retriever.get_tweets(
+                query_string=query_string,
+                start_datetime=intraday_start_dt,
+                end_datetime=intraday_end_dt
+            )
             logger.info('Raw data is retrieved from Twitter API.')
             object_storage = get_object_storage_client()
             object_storage.set(key=uuid4(), value=raw_data)
